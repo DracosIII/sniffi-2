@@ -1,0 +1,167 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/*----- DAARK MODE ------*/
+
+.dark-mode {
+  background: #000;
+  color: #fff;
+}
+
+.dark-mode .testimonials {
+  background: #3e3c3c;
+  color: #fff;
+}
+
+.dark-mode .testimonials h2 {
+  color: #fff;
+}
+
+
+/*-----  LIGHT MODE   -----*/
+/* Header Styles */
+header {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  height: 40px;
+}
+
+header button {
+  background-color: white;
+  color: #0066cc;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+header button:hover {
+  background-color: #004d99;
+  color: white;
+}
+
+/* Features Section */
+section.features {
+  padding: 20px;
+  text-align: center;
+}
+
+.features h2 {
+  color: #0066cc;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.features button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.features button:hover {
+  background-color: #004d99;
+}
+
+/* Testimonials Section */
+section.testimonials {
+  padding: 20px;
+  background-color: #e6f7ff;
+  text-align: center;
+}
+
+.testimonials h2 {
+  color: #333;
+}
+
+.testimonials p {
+  font-style: italic;
+  color: #555;
+  margin: 10px auto;
+  max-width: 600px;
+}
+
+/* Login Section */
+section.login {
+  padding: 20px;
+  text-align: center;
+}
+
+.login form {
+  display: inline-block;
+  text-align: left;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login button:hover {
+  background-color: #004d99;
+}
+
+.login a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.login a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: 20px;
+}

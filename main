@@ -1,0 +1,58 @@
+from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
+from PyQt6.QtCore import Qt
+import os
+from formulaire_inscription import LoginWindow, RegisterWindow
+from DB_AWS import load_session, save_session, is_logged_in, login_user
+
+SESSION_FILE = "session.txt"
+
+class ARPSpooferApp(QMainWindow):
+    def __init__(self, username):
+        super().__init__()
+        self.setWindowTitle("ARP Spoofer")
+        self.setGeometry(100, 100, 600, 700)
+        self.username = username
+
+        # Affichage du nom d'utilisateur
+        self.username_label = QLabel(f"Connecté en tant que : {username}", self)
+        self.username_label.setGeometry(20, 20, 400, 30)
+
+        # Bouton pour déconnexion
+        self.logout_button = QPushButton("Se Déconnecter", self)
+        self.logout_button.setGeometry(20, 60, 200, 40)
+        self.logout_button.clicked.connect(self.logout)
+
+    def logout(self):
+        """Déconnecte l'utilisateur et ferme l'application."""
+        if os.path.exists(SESSION_FILE):
+            os.remove(SESSION_FILE)  # Supprime le fichier de session
+        self.close()
+
+# Fonction principale pour gérer l'interface et la connexion
+def main():
+    # Vérifie si une session est active
+    if is_logged_in():
+        username = load_session()
+        print(f"Utilisateur déjà connecté : {username}")
+        app = QApplication([])
+        window = ARPSpooferApp(username)
+        window.show()
+        app.exec()  # Lancer l'application PyQt
+    else:
+        print("Veuillez vous connecter.")
+        username = input("Nom d'utilisateur : ")
+        password = input("Mot de passe : ")
+
+        # Tentative de connexion
+        if login_user(username, password):
+            save_session(username) 
+            app = QApplication([])
+            window = ARPSpooferApp(username)
+            window.show()
+            app.exec()  # Lancer l'application PyQt
+        else:
+            print("Échec de la connexion.")
+            exit()  # Quitte si la connexion échoue
+
+if __name__ == "__main__":
+    main()

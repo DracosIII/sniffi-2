@@ -1,0 +1,4 @@
+scapy
+smtplib
+pyqt6
+mysql-connector-python
